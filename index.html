@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js" type="module"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <select v-model="select" @click.prevent="ocultar">
+            <option></option>
+            <option v-for="i in sedes"> {{i}} </option>
+        </select>
+
+        <div v-if="select">
+            <select  v-model="select" @click="ocultar">
+                <option></option>
+                <option v-for="i in rol"> {{i}} </option>
+            </select>
+        </div>
+
+        <div  v-if="selectE == true"> 
+            <form>
+                <label for="">Nombre Estudiante </label>
+                <input type="text" v-model="nombreEstudiante">
+                <label for=""></label>
+                <button @click.prevent="ingresarDatosE"> Enviar</button>
+                
+            </form>
+        </div>
+        <div  v-if="selectP == true"> 
+            <form>
+                <label for="">Nombre Profesor </label>
+                <input type="text" v-model="nombreProfesor">
+                <br><hr>
+                <label for="">telefono Profesor</label>
+                <input type="text" v-model="telefonoProfesor">
+                <br><hr>
+                <label for="">teams Profesor</label>
+                <input type="text" v-model="teamsProfesor">
+                <br><hr>
+                <!-- <label for="">teams</label>
+                <input type="text" v-model="dia"> -->
+                <button @click.prevent="ingresarDatosP"> Enviar</button>
+                <!-- {{Lista}} -->
+                <ul>
+                    <li v-for="(i, index) in Lista"> {{i.values}} </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
